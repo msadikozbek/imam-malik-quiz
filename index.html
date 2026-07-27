@@ -1,0 +1,814 @@
+<title>İmam Mâlik b. Enes — Meclis Sınavı</title>
+<style>
+  :root{
+    --bg:#f1e7d6;
+    --bg-elevated:#fbf6ec;
+    --bg-card-edge: rgba(43,32,24,0.10);
+    --ink:#2b2018;
+    --ink-soft:#5c4e3e;
+    --ink-faint:#8a7a64;
+    --teal:#1f5c54;
+    --teal-ink:#ffffff;
+    --teal-soft:#dce9e4;
+    --teal-soft-ink:#1f5c54;
+    --gold:#a97b28;
+    --gold-soft:#f1e2be;
+    --gold-soft-ink:#7a5a1e;
+    --line: rgba(43,32,24,0.16);
+    --good:#3e7a4e;
+    --good-soft:#dfeee2;
+    --bad:#a8402e;
+    --bad-soft:#f4ded9;
+    --shadow: 0 1px 2px rgba(43,32,24,0.06), 0 12px 28px -14px rgba(43,32,24,0.28);
+    --radius: 14px;
+    --serif: Iowan Old Style, Palatino Linotype, Palatino, Georgia, "Noto Serif", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#171310;
+      --bg-elevated:#221c16;
+      --bg-card-edge: rgba(237,226,208,0.08);
+      --ink:#ede2d0;
+      --ink-soft:#c2b39a;
+      --ink-faint:#8d7e68;
+      --teal:#5fcdba;
+      --teal-ink:#0e211d;
+      --teal-soft:#1c3b36;
+      --teal-soft-ink:#8fe0d1;
+      --gold:#e0b563;
+      --gold-soft:#3a2e17;
+      --gold-soft-ink:#f0cc8c;
+      --line: rgba(237,226,208,0.16);
+      --good:#7fd393;
+      --good-soft:#1e3324;
+      --bad:#e2856f;
+      --bad-soft:#3a231d;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 20px 40px -20px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#171310; --bg-elevated:#221c16; --bg-card-edge: rgba(237,226,208,0.08);
+    --ink:#ede2d0; --ink-soft:#c2b39a; --ink-faint:#8d7e68;
+    --teal:#5fcdba; --teal-ink:#0e211d; --teal-soft:#1c3b36; --teal-soft-ink:#8fe0d1;
+    --gold:#e0b563; --gold-soft:#3a2e17; --gold-soft-ink:#f0cc8c;
+    --line: rgba(237,226,208,0.16);
+    --good:#7fd393; --good-soft:#1e3324; --bad:#e2856f; --bad-soft:#3a231d;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 20px 40px -20px rgba(0,0,0,0.6);
+  }
+  :root[data-theme="light"]{
+    --bg:#f1e7d6; --bg-elevated:#fbf6ec; --bg-card-edge: rgba(43,32,24,0.10);
+    --ink:#2b2018; --ink-soft:#5c4e3e; --ink-faint:#8a7a64;
+    --teal:#1f5c54; --teal-ink:#ffffff; --teal-soft:#dce9e4; --teal-soft-ink:#1f5c54;
+    --gold:#a97b28; --gold-soft:#f1e2be; --gold-soft-ink:#7a5a1e;
+    --line: rgba(43,32,24,0.16);
+    --good:#3e7a4e; --good-soft:#dfeee2; --bad:#a8402e; --bad-soft:#f4ded9;
+    --shadow: 0 1px 2px rgba(43,32,24,0.06), 0 12px 28px -14px rgba(43,32,24,0.28);
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(1100px 500px at 12% -8%, var(--gold-soft) 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, var(--teal-soft) 0%, transparent 50%),
+      var(--bg);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before{
+    content:"";
+    position: fixed; inset:0;
+    pointer-events:none;
+    opacity:0.5;
+    background-image:
+      repeating-linear-gradient(45deg, var(--line) 0, var(--line) 1px, transparent 1px, transparent 34px),
+      repeating-linear-gradient(-45deg, var(--line) 0, var(--line) 1px, transparent 1px, transparent 34px);
+    -webkit-mask-image: radial-gradient(1200px 800px at 50% 0%, black, transparent 78%);
+            mask-image: radial-gradient(1200px 800px at 50% 0%, black, transparent 78%);
+  }
+
+  .stage{
+    position:relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(20px, 5vw, 56px) 18px 64px;
+  }
+
+  .eyebrow{
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .folio{
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-card-edge);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .folio-rule{
+    height: 6px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+  }
+  .folio-inner{ padding: clamp(20px, 4vw, 40px); }
+
+  h1,h2,h3{ font-family: var(--serif); font-weight: 600; text-wrap: balance; margin: 0; }
+
+  /* ---------- Cover ---------- */
+  .cover-title{
+    font-size: clamp(32px, 6vw, 46px);
+    margin-top: 10px;
+    color: var(--ink);
+  }
+  .cover-sub{
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: clamp(15px, 2.4vw, 18px);
+    margin-top: 6px;
+  }
+  .cover-desc{
+    margin-top: 22px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 56ch;
+  }
+  .legend{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-top: 22px;
+  }
+  .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size: 12.5px; font-weight:600;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: var(--teal-soft); color: var(--teal-soft-ink);
+    border: 1px solid transparent;
+  }
+  .rules{
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display:grid; gap: 10px;
+  }
+  .rule-item{ display:flex; gap: 12px; align-items:flex-start; font-size: 14px; color: var(--ink-soft); line-height:1.55; }
+  .rule-icon{
+    flex: none; width: 28px; height:28px; border-radius: 8px;
+    background: var(--gold-soft); color: var(--gold-soft-ink);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 14px; margin-top: 1px;
+  }
+  .record-note{
+    margin-top: 18px; font-size: 13px; color: var(--ink-faint);
+  }
+  .cta-row{ margin-top: 28px; display:flex; gap: 12px; flex-wrap:wrap; align-items:center; }
+
+  button{ font-family: inherit; cursor: pointer; }
+  .btn{
+    appearance:none; border:none; border-radius: 11px;
+    padding: 13px 22px;
+    font-size: 15px; font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  }
+  .btn:focus-visible{ outline: 3px solid var(--gold); outline-offset: 2px; }
+  .btn-primary{
+    background: var(--teal); color: var(--teal-ink);
+    box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--teal) 70%, transparent);
+  }
+  .btn-primary:hover{ transform: translateY(-1px); }
+  .btn-ghost{
+    background: transparent; color: var(--ink-soft);
+    border: 1px solid var(--line);
+  }
+  .btn-ghost:hover{ border-color: var(--ink-faint); color: var(--ink); }
+
+  /* ---------- Header / progress ---------- */
+  .app-header{
+    max-width: 760px; margin: 0 auto; padding: 0 18px;
+    display:none;
+  }
+  .app-header.show{ display:block; }
+  .stat-row{
+    display:flex; align-items:center; justify-content:space-between;
+    gap: 12px; flex-wrap: wrap;
+    padding: 14px 2px 12px;
+  }
+  .brand{
+    font-family: var(--serif); font-weight:700; font-size: 15px; color: var(--ink);
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{ width:7px; height:7px; border-radius:50%; background: var(--gold); }
+  .stats{
+    display:flex; gap: 16px; align-items:center; font-variant-numeric: tabular-nums;
+  }
+  .stat{ display:flex; flex-direction:column; align-items:flex-end; line-height:1.15; }
+  .stat .num{ font-weight:800; font-size: 16px; color: var(--ink); }
+  .stat .lbl{ font-size: 10.5px; letter-spacing:0.07em; text-transform:uppercase; color: var(--ink-faint); }
+  .stat.streak .num{ color: var(--gold); }
+
+  .chain{
+    display:flex; gap: 4px; padding: 0 2px 16px;
+    flex-wrap: wrap;
+  }
+  .link{
+    height: 8px; flex:1; min-width: 8px;
+    border-radius: 4px;
+    background: var(--bg-card-edge);
+    border: 1px solid var(--line);
+    transition: background-color .3s ease, border-color .3s ease, transform .2s ease;
+  }
+  .link.correct{ background: var(--teal); border-color: var(--teal); }
+  .link.incorrect{ background: var(--bad); border-color: var(--bad); }
+  .link.current{ box-shadow: 0 0 0 2px var(--gold); transform: scaleY(1.3); }
+
+  /* ---------- Question ---------- */
+  .meta-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .qnum{
+    font-family: var(--sans); font-size: 12.5px; font-weight:700; color: var(--ink-faint);
+    letter-spacing: 0.06em; text-transform:uppercase;
+  }
+  .diff{
+    font-size: 11.5px; font-weight:700; padding: 4px 9px; border-radius:999px;
+    text-transform:uppercase; letter-spacing:0.05em;
+  }
+  .diff-kolay{ background: var(--good-soft); color: var(--good); }
+  .diff-orta{ background: var(--gold-soft); color: var(--gold-soft-ink); }
+  .diff-zor{ background: var(--bad-soft); color: var(--bad); }
+
+  .qtext{
+    font-family: var(--serif);
+    font-size: clamp(19px, 3.4vw, 23px);
+    line-height: 1.42;
+    margin: 16px 0 22px;
+    text-wrap: balance;
+  }
+
+  .options{ display:grid; gap: 10px; }
+  .option{
+    display:flex; align-items:center; gap: 13px;
+    text-align:left;
+    width:100%;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 13px 15px;
+    font-size: 14.5px;
+    color: var(--ink);
+    transition: border-color .15s ease, background-color .15s ease, transform .1s ease;
+  }
+  .option:hover:not(:disabled){ border-color: var(--teal); background: var(--teal-soft); }
+  .option:focus-visible{ outline: 3px solid var(--gold); outline-offset: 1px; }
+  .option:active:not(:disabled){ transform: scale(0.995); }
+  .option:disabled{ cursor: default; }
+  .badge{
+    flex:none; width: 26px; height:26px; border-radius:50%;
+    background: var(--bg-elevated); border: 1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 12.5px; font-weight:800; color: var(--ink-soft);
+  }
+  .option.selected .badge{ background: var(--teal); border-color: var(--teal); color: var(--teal-ink); }
+  .option.correct{ border-color: var(--good); background: var(--good-soft); }
+  .option.correct .badge{ background: var(--good); border-color: var(--good); color: #fff; }
+  .option.wrong{ border-color: var(--bad); background: var(--bad-soft); }
+  .option.wrong .badge{ background: var(--bad); border-color: var(--bad); color: #fff; }
+  .option.dim{ opacity: 0.55; }
+
+  .feedback{
+    margin-top: 18px; padding: 14px 16px; border-radius: 11px;
+    font-size: 13.5px; line-height: 1.6;
+    border: 1px solid var(--line);
+    display:none;
+  }
+  .feedback.show{ display:block; }
+  .feedback.ok{ background: var(--good-soft); color: var(--ink); border-color: color-mix(in srgb, var(--good) 40%, var(--line)); }
+  .feedback.no{ background: var(--bad-soft); color: var(--ink); border-color: color-mix(in srgb, var(--bad) 40%, var(--line)); }
+  .feedback b{ font-family: var(--serif); }
+  .fb-points{ font-weight:800; }
+  .fb-points.ok{ color: var(--good); }
+  .fb-bonus{ color: var(--gold); font-weight:700; }
+
+  .foot-row{ display:flex; justify-content:flex-end; margin-top:18px; min-height: 44px; align-items:center; }
+
+  /* ---------- Results ---------- */
+  .tier-eyebrow{ color: var(--gold); }
+  .tier-title{ font-size: clamp(24px, 5vw, 32px); margin-top: 8px; }
+  .tier-note{ margin-top: 10px; color: var(--ink-soft); font-size: 14.5px; line-height:1.6; max-width: 58ch; }
+
+  .score-grid{
+    display:grid; grid-template-columns: repeat(3,1fr); gap: 10px;
+    margin-top: 24px;
+  }
+  .score-card{
+    background: var(--bg); border:1px solid var(--line); border-radius: 12px;
+    padding: 14px 14px; text-align:center;
+  }
+  .score-card .big{ font-family: var(--serif); font-weight:700; font-size: 24px; font-variant-numeric: tabular-nums; }
+  .score-card .lbl{ font-size: 11px; letter-spacing:0.05em; text-transform:uppercase; color: var(--ink-faint); margin-top:4px; }
+  .score-card.gold .big{ color: var(--gold); }
+  .score-card.teal .big{ color: var(--teal); }
+
+  .cat-block{ margin-top: 28px; }
+  .cat-title{ font-size: 12.5px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color: var(--ink-faint); margin-bottom: 12px; }
+  .cat-row{ display:grid; grid-template-columns: 150px 1fr 42px; align-items:center; gap: 10px; margin-bottom: 9px; }
+  .cat-name{ font-size: 12.5px; color: var(--ink-soft); }
+  .cat-track{ height: 8px; border-radius: 5px; background: var(--bg-card-edge); overflow:hidden; }
+  .cat-fill{ height:100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius:5px; }
+  .cat-frac{ font-size: 12px; text-align:right; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  .review-toggle{
+    margin-top: 26px; width:100%; text-align:left;
+    background: var(--bg); border:1px solid var(--line); border-radius: 11px;
+    padding: 13px 16px; font-weight:700; font-size: 14px; color: var(--ink);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .review-list{ display:none; margin-top: 14px; }
+  .review-list.show{ display:grid; gap: 12px; }
+  .review-item{ border:1px solid var(--line); border-radius: 11px; padding: 14px 16px; background: var(--bg); }
+  .review-q{ font-family: var(--serif); font-size: 15px; margin-bottom: 8px; }
+  .review-ans{ font-size: 13px; line-height:1.6; }
+  .review-ans .yours{ color: var(--bad); }
+  .review-ans .right{ color: var(--good); }
+  .review-exp{ margin-top: 6px; font-size: 12.5px; color: var(--ink-soft); }
+
+  .result-cta{ display:flex; gap:12px; margin-top: 28px; flex-wrap:wrap; }
+
+  .app-footer{ text-align:center; margin-top: 26px; font-size:12px; color: var(--ink-faint); }
+
+  @keyframes shake{ 10%,90%{transform:translateX(-1px)} 20%,80%{transform:translateX(2px)} 30%,50%,70%{transform:translateX(-4px)} 40%,60%{transform:translateX(4px)} }
+  .shake{ animation: shake .4s; }
+  @keyframes pop{ 0%{transform:scale(1)} 50%{transform:scale(1.18)} 100%{transform:scale(1)} }
+  .pop{ animation: pop .35s ease; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+  }
+
+  @media (max-width: 480px){
+    .score-grid{ grid-template-columns: 1fr 1fr; }
+    .cat-row{ grid-template-columns: 100px 1fr 36px; }
+  }
+</style>
+
+<header class="app-header" id="appHeader">
+  <div class="stage" style="padding-top:14px; padding-bottom:0;">
+    <div class="stat-row">
+      <div class="brand"><span class="dot"></span> İmam Mâlik Meclisi</div>
+      <div class="stats">
+        <div class="stat"><span class="num" id="statScore">0</span><span class="lbl">Puan</span></div>
+        <div class="stat streak"><span class="num" id="statStreak">0</span><span class="lbl">Silsile</span></div>
+        <div class="stat"><span class="num" id="statCount">0/0</span><span class="lbl">Soru</span></div>
+      </div>
+    </div>
+    <div class="chain" id="chainTrack"></div>
+  </div>
+</header>
+
+<main class="stage">
+
+  <!-- COVER -->
+  <section id="cover">
+    <div class="eyebrow">HADİS IV · LİSANS DÖNEMİ</div>
+    <h1 class="cover-title">İmam Mâlik b. Enes</h1>
+    <div class="cover-sub">Medine'nin İmamı, Hadis'in Sultanı — Meclis Sınavı</div>
+    <p class="cover-desc">
+      Derste işlenen hayat hikâyesi, hocaları, talebeleri, el-Muvatta ve ilmî yöntemi
+      üzerine on sorudan oluşan bir meclis sınavı. Her doğru cevap "Altın
+      Silsile"ye bir halka daha ekler; art arda doğru cevaplar bonus puan kazandırır.
+    </p>
+    <div class="legend">
+      <span class="chip">Hayat &amp; Aile</span>
+      <span class="chip">Hocalar</span>
+      <span class="chip">Talebeler &amp; Yayılış</span>
+      <span class="chip">el-Muvatta</span>
+      <span class="chip">Yöntem</span>
+      <span class="chip">Şahsiyet &amp; Verâ</span>
+    </div>
+    <div class="rules">
+      <div class="rule-item"><span class="rule-icon">⛓</span><span><b>Altın Silsile bonusu</b> — üst üste 3. doğrudan itibaren her doğru cevap ekstra puan kazandırır; bir yanlış silsileyi kırar.</span></div>
+      <div class="rule-item"><span class="rule-icon">⚡</span><span><b>Hız bonusu</b> — bir soruyu 10 saniye içinde cevaplarsan +3 ekstra puan.</span></div>
+      <div class="rule-item"><span class="rule-icon">◆</span><span>Sorular kolay / orta / zor olarak derecelendirilmiştir; zor sorular daha yüksek puan taşır.</span></div>
+      <div class="rule-item"><span class="rule-icon">✎</span><span>Sınav sonunda yanlış cevapladığın sorular, kısa açıklamalarıyla birlikte gözden geçirilebilir.</span></div>
+    </div>
+    <div class="record-note" id="recordNote"></div>
+    <div class="cta-row">
+      <button class="btn btn-primary" id="startBtn">Meclise Başla</button>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quizSection" style="display:none;">
+    <div class="folio">
+      <div class="folio-rule"></div>
+      <div class="folio-inner">
+        <div class="meta-row">
+          <span class="qnum" id="qCatLabel">Hayat &amp; Aile</span>
+          <span class="diff" id="qDiff">kolay</span>
+        </div>
+        <h2 class="qtext" id="qText">Soru metni</h2>
+        <div class="options" id="qOptions"></div>
+        <div class="feedback" id="qFeedback"></div>
+        <div class="foot-row">
+          <button class="btn btn-primary" id="nextBtn" style="display:none;">Devam Et →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="resultSection" style="display:none;">
+    <div class="folio">
+      <div class="folio-rule"></div>
+      <div class="folio-inner">
+        <div class="eyebrow tier-eyebrow" id="tierEyebrow">SONUÇ</div>
+        <h2 class="tier-title" id="tierTitle">—</h2>
+        <p class="tier-note" id="tierNote"></p>
+
+        <div class="score-grid">
+          <div class="score-card teal"><div class="big" id="rScore">0</div><div class="lbl">Toplam Puan</div></div>
+          <div class="score-card"><div class="big" id="rCorrect">0/0</div><div class="lbl">Doğru Cevap</div></div>
+          <div class="score-card gold"><div class="big" id="rStreak">0</div><div class="lbl">En Uzun Silsile</div></div>
+        </div>
+
+        <div class="cat-block">
+          <div class="cat-title">Konu Bazlı Performans</div>
+          <div id="catRows"></div>
+        </div>
+
+        <button class="review-toggle" id="reviewToggle">
+          <span>Yanlış Cevapları Gözden Geçir</span><span id="reviewChevron">▾</span>
+        </button>
+        <div class="review-list" id="reviewList"></div>
+
+        <div class="result-cta">
+          <button class="btn btn-primary" id="restartBtn">Yeniden Başla</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  var CATS = {
+    HYT: "Hayat & Aile",
+    HOC: "Hocalar",
+    TLB: "Talebeler & Yayılış",
+    MUV: "el-Muvatta",
+    YNT: "Yöntem",
+    SAH: "Şahsiyet & Verâ"
+  };
+  var POINTS = { kolay: 10, orta: 15, zor: 20 };
+
+  var BANK = [
+    {cat:"HYT", diff:"kolay", q:"Genç Mâlik, babasından hangi sebeple sitem işitip ilim yoluna kesin biçimde yönelmiştir?",
+      opts:["Güvercinlerle vakit geçirmesi","Ticarete yönelmesi","Şiirle uğraşması","Seyahate çıkması"],
+      correct:0, exp:"Babasının sorduğu bir soruyu bilemeyince güvercinlerle vakit geçirdiği için sitem işitmiş, bu olay dönüm noktası olmuştur."},
+
+    {cat:"HOC", diff:"orta", q:"İmam Mâlik, eğitiminin ilk yıllarını münhasıran hangi hocasına tahsis etmiş ve ondan sadece cevap vermeyi değil, gerektiğinde 'bilmiyorum' demeyi de öğrenmiştir?",
+      opts:["İbn Şihâb ez-Zührî","Rebîatürre'y","İbn Hürmüz","Nâfi'"],
+      correct:2, exp:"Genç Mâlik, eğitiminin ilk 7-8 yılını yalnızca İbn Hürmüz'e ayırmış, ondan ilmî tevazuu ve cedelden korunmayı öğrenmiştir."},
+    {cat:"HOC", diff:"kolay", q:"Nâfi', İmam Mâlik'e kimin fıkhını aktarmıştır?",
+      opts:["Hz. Ömer'in","İbn Abbas'ın","İbn Ömer'in","Hz. Osman'ın"],
+      correct:2, exp:"Nâfi', İbn Ömer'in azatlısıdır ve İmam Mâlik onun fıkhını Nâfi' aracılığıyla tahsil etmiştir."},
+    {cat:"HOC", diff:"orta", q:"'Medine'ye geldiğinde kapısında izdiham olurdu' diye tasvir edilen, hadis ilminin deryası ve sünnetin muhafızı kabul edilen hocası kimdir?",
+      opts:["Rebîatürre'y","İbn Şihâb ez-Zührî","İbn Hürmüz","Leys b. Sa'd"],
+      correct:1, exp:"Bu tasvir İbn Şihâb ez-Zührî'ye aittir; hadis otoritesi olarak anılır."},
+
+    {cat:"TLB", diff:"kolay", q:"Günümüzde İslam dünyasında en meşhur olan el-Muvatta nüshası kime aittir?",
+      opts:["İmam Muhammed eş-Şeybânî'ye","İbnü'l-Kāsım'a","Yahyâ b. Yahyâ el-Leysî'ye","Abdullah b. Vehb'e"],
+      correct:2, exp:"Yahyâ b. Yahyâ el-Leysî'nin rivayeti, özellikle Kuzey Afrika ve Endülüs hattında yayılarak günümüzde en meşhur nüsha hâline gelmiştir."},
+
+    {cat:"MUV", diff:"orta", q:"İmam Şâfiî, el-Muvatta hakkında ne söylemiştir?",
+      opts:["Kur'an'dan sonra en sahih kitaptır","Sünnetten sonra en güvenilir kitaptır","İlmin özeti bu kitaptadır","Bu kitaba denk bir eser yazılamaz"],
+      correct:0, exp:"İmam Şâfiî, kendi döneminde el-Muvatta'yı 'Kur'an'dan sonra en sahih kitap' olarak nitelendirmiştir."},
+    {cat:"MUV", diff:"zor", q:"Bir halife el-Muvatta'ı Kâbe'ye asıp tüm Müslümanları ona uymaya zorlamak istediğinde İmam Mâlik'in cevabı ne olmuştur?",
+      opts:["Teklifi memnuniyetle kabul etmiştir","Ashabın farklı beldelere dağıldığını, her topluluğun kendi ilmi olduğunu söyleyip insanları zorlamamasını istemiştir","Önce kitabı yeniden gözden geçirmek istemiştir","Teklifi reddedip kitabı gizli tutmayı tercih etmiştir"],
+      correct:1, exp:"Mâlik, ashabın farklı beldelere dağıldığını ve her topluluğun kendine has ilmi olduğunu hatırlatarak insanların zorlanmamasını istemiştir."},
+
+    {cat:"YNT", diff:"orta", q:"Mâlik'e göre Medine halkının ortak uygulaması (amel-i ehl-i Medine), rivayet gücü bakımından neyle kıyaslandığında daha kuvvetli kabul edilmiştir?",
+      opts:["Mütevatir hadisle","Haber-i vâhid (tek kişi rivayeti) ile","İcma ile","Kıyas ile"],
+      correct:1, exp:"Mâlik'e göre Medine halkının ortak ameli, tek başına rivayet edilen haber-i vâhidden daha kuvvetlidir."},
+
+    {cat:"SAH", diff:"orta", q:"İmam Mâlik'in 'Şu direklerin dibinde Resûlullah buyurdu diyen 70 kişiye yetiştim, fakat onlardan bir şey almadım' sözünün gerekçesi nedir?",
+      opts:["Onların yalancı olması","Salih olmakla birlikte hadis ilminin ehli olmamaları","Aralarında ihtilaf bulunması","Zührî'nin onları tasvip etmemesi"],
+      correct:1, exp:"Bu kişiler dindar ve doğru kimselerdi, fakat hadis rivayeti konusunda ehliyet sahibi değillerdi; dindarlık ile ilmî ehliyeti ayırmıştır."},
+    {cat:"SAH", diff:"kolay", q:"İmam Mâlik'e sorulan 48 sorudan kaçına 'Lâ edrî' (bilmiyorum) cevabını vermiştir?",
+      opts:["16","24","32","40"],
+      correct:2, exp:"48 sorudan sadece 16'sına cevap vermiş, 32'sinde 'bilmiyorum' demiştir."}
+  ];
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  // Build session question set: shuffle order + shuffle each question's options
+  var questions = shuffle(BANK).map(function(item){
+    var order = shuffle([0,1,2,3]);
+    var opts = order.map(function(idx){ return item.opts[idx]; });
+    var correctIndex = order.indexOf(item.correct);
+    return {
+      cat: item.cat, diff: item.diff, q: item.q, opts: opts,
+      correctIndex: correctIndex, exp: item.exp, points: POINTS[item.diff]
+    };
+  });
+
+  var total = questions.length;
+  var idx = 0;
+  var score = 0;
+  var correctCount = 0;
+  var streak = 0;
+  var bestStreak = 0;
+  var answered = [];       // per-question: {correct, chosen}
+  var qStartTime = 0;
+
+  var el = {
+    cover: document.getElementById("cover"),
+    quizSection: document.getElementById("quizSection"),
+    resultSection: document.getElementById("resultSection"),
+    appHeader: document.getElementById("appHeader"),
+    startBtn: document.getElementById("startBtn"),
+    recordNote: document.getElementById("recordNote"),
+    statScore: document.getElementById("statScore"),
+    statStreak: document.getElementById("statStreak"),
+    statCount: document.getElementById("statCount"),
+    chainTrack: document.getElementById("chainTrack"),
+    qCatLabel: document.getElementById("qCatLabel"),
+    qDiff: document.getElementById("qDiff"),
+    qText: document.getElementById("qText"),
+    qOptions: document.getElementById("qOptions"),
+    qFeedback: document.getElementById("qFeedback"),
+    nextBtn: document.getElementById("nextBtn"),
+    tierEyebrow: document.getElementById("tierEyebrow"),
+    tierTitle: document.getElementById("tierTitle"),
+    tierNote: document.getElementById("tierNote"),
+    rScore: document.getElementById("rScore"),
+    rCorrect: document.getElementById("rCorrect"),
+    rStreak: document.getElementById("rStreak"),
+    catRows: document.getElementById("catRows"),
+    reviewToggle: document.getElementById("reviewToggle"),
+    reviewChevron: document.getElementById("reviewChevron"),
+    reviewList: document.getElementById("reviewList"),
+    restartBtn: document.getElementById("restartBtn")
+  };
+
+  var BEST_KEY = "imamMalikQuizBest";
+  (function initRecord(){
+    try{
+      var best = localStorage.getItem(BEST_KEY);
+      if (best){
+        var b = JSON.parse(best);
+        el.recordNote.textContent = "Kişisel rekorun: " + b.score + " puan (" + b.correct + "/" + b.total + " doğru).";
+      }
+    } catch(e){}
+  })();
+
+  function buildChain(){
+    el.chainTrack.innerHTML = "";
+    for (var i = 0; i < total; i++){
+      var d = document.createElement("div");
+      d.className = "link";
+      d.id = "link" + i;
+      el.chainTrack.appendChild(d);
+    }
+  }
+
+  function updateChain(){
+    for (var i = 0; i < total; i++){
+      var d = document.getElementById("link" + i);
+      d.className = "link" + (i === idx ? " current" : "");
+      if (answered[i]){
+        d.className = "link " + (answered[i].correct ? "correct" : "incorrect");
+      }
+    }
+  }
+
+  function updateStats(){
+    el.statScore.textContent = score;
+    el.statStreak.textContent = streak;
+    el.statCount.textContent = idx + (answered[idx] ? 1 : 0) <= total ? Math.min(idx+1,total) + "/" + total : total + "/" + total;
+  }
+
+  function diffLabel(d){ return d === "kolay" ? "kolay" : d === "orta" ? "orta" : "zor"; }
+
+  function renderQuestion(){
+    var item = questions[idx];
+    el.qCatLabel.textContent = CATS[item.cat];
+    el.qDiff.textContent = diffLabel(item.diff);
+    el.qDiff.className = "diff diff-" + item.diff;
+    el.qText.textContent = item.q;
+    el.qOptions.innerHTML = "";
+    el.qFeedback.className = "feedback";
+    el.qFeedback.innerHTML = "";
+    el.nextBtn.style.display = "none";
+
+    item.opts.forEach(function(optText, i){
+      var b = document.createElement("button");
+      b.className = "option";
+      b.setAttribute("data-i", i);
+      var badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = "ABCD"[i];
+      var span = document.createElement("span");
+      span.textContent = optText;
+      b.appendChild(badge);
+      b.appendChild(span);
+      b.addEventListener("click", function(){ selectOption(i); });
+      el.qOptions.appendChild(b);
+    });
+
+    updateChain();
+    updateStats();
+    qStartTime = Date.now();
+  }
+
+  function selectOption(choiceIndex){
+    if (answered[idx]) return;
+    var item = questions[idx];
+    var isCorrect = choiceIndex === item.correctIndex;
+    var elapsedSec = (Date.now() - qStartTime) / 1000;
+    var speedBonus = (isCorrect && elapsedSec <= 10) ? 3 : 0;
+    var streakBonus = 0;
+
+    if (isCorrect){
+      streak += 1;
+      bestStreak = Math.max(bestStreak, streak);
+      if (streak >= 3) streakBonus = (streak - 2) * 5;
+      correctCount += 1;
+    } else {
+      streak = 0;
+    }
+
+    var gained = isCorrect ? (item.points + speedBonus + streakBonus) : 0;
+    score += gained;
+
+    answered[idx] = { correct: isCorrect, chosen: choiceIndex };
+
+    var optionEls = el.qOptions.querySelectorAll(".option");
+    optionEls.forEach(function(node){
+      var i = parseInt(node.getAttribute("data-i"), 10);
+      node.disabled = true;
+      if (i === item.correctIndex) node.classList.add("correct");
+      else if (i === choiceIndex) node.classList.add("wrong");
+      else node.classList.add("dim");
+      if (i === choiceIndex) node.classList.add("selected");
+    });
+
+    el.qFeedback.className = "feedback show " + (isCorrect ? "ok" : "no");
+    var bonusBits = [];
+    if (isCorrect){
+      bonusBits.push("+" + item.points + " taban puan");
+      if (streakBonus > 0) bonusBits.push('<span class="fb-bonus">+' + streakBonus + " silsile bonusu</span>");
+      if (speedBonus > 0) bonusBits.push('<span class="fb-bonus">+' + speedBonus + " hız bonusu</span>");
+    }
+    var head = isCorrect
+      ? '<b>Doğru.</b> <span class="fb-points ok">' + bonusBits.join(" · ") + "</span>"
+      : "<b>Yanlış.</b> Doğru cevap işaretlendi.";
+    el.qFeedback.innerHTML = head + "<br>" + item.exp;
+
+    if (!isCorrect){
+      el.qOptions.classList.add("shake");
+      setTimeout(function(){ el.qOptions.classList.remove("shake"); }, 400);
+    } else if (streak >= 3){
+      el.statStreak.classList.add("pop");
+      setTimeout(function(){ el.statStreak.classList.remove("pop"); }, 350);
+    }
+
+    updateChain();
+    updateStats();
+    el.nextBtn.style.display = "inline-flex";
+    el.nextBtn.textContent = (idx === total - 1) ? "Sonuçları Gör →" : "Devam Et →";
+    el.nextBtn.focus();
+  }
+
+  function nextQuestion(){
+    if (idx < total - 1){
+      idx += 1;
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  function tierFor(pct){
+    if (pct >= 90) return { eyebrow: "MÜKEMMEL", title: "Silsiletü'z-Zeheb Seviyesi", note: "Altın silsilenin bir halkası olmayı hak ettin: Hz. Peygamber'den İbn Ömer'e, Nâfi'den İmam Mâlik'e uzanan rivayet zinciri kadar sağlam bir hazırlığın var." };
+    if (pct >= 75) return { eyebrow: "ÇOK İYİ", title: "900 Hocanın Talebesi", note: "İmam Mâlik'in ilim meclisinde gözden kaçmayacak bir talebe olurdun. Küçük eksikleri gözden geçirmen yeterli." };
+    if (pct >= 60) return { eyebrow: "İYİ", title: "Mescid-i Nebevî Dinleyicisi", note: "Halkanın içindesin, fakat henüz İbn Hürmüz'ün yedi yıllık hususi terbiyesinden geçmedin. Konuları tekrar etmen faydalı olur." };
+    if (pct >= 40) return { eyebrow: "GELİŞTİRİLEBİLİR", title: "Güvercinlerle Vakit Geçiren Genç Mâlik", note: "Genç Mâlik de bir gün babasının sitemiyle ilim yoluna dönmüştü. Sunumu tekrar gözden geçirip yeniden dene." };
+    return { eyebrow: "TEKRAR GEREKLİ", title: "İbn Hürmüz'ün Halkasına Geri Dön", note: "Temeller henüz oturmadı. Sunumu baştan sona tekrar izleyip meclise yeniden katılmanı öneririz." };
+  }
+
+  function showResults(){
+    el.quizSection.style.display = "none";
+    el.appHeader.classList.remove("show");
+    el.resultSection.style.display = "block";
+
+    var pct = Math.round((correctCount / total) * 100);
+    var tier = tierFor(pct);
+    el.tierEyebrow.textContent = tier.eyebrow + " · %" + pct + " DOĞRU";
+    el.tierTitle.textContent = tier.title;
+    el.tierNote.textContent = tier.note;
+
+    el.rScore.textContent = score;
+    el.rCorrect.textContent = correctCount + "/" + total;
+    el.rStreak.textContent = bestStreak;
+
+    // category breakdown
+    var catStats = {};
+    Object.keys(CATS).forEach(function(k){ catStats[k] = { correct: 0, total: 0 }; });
+    questions.forEach(function(item, i){
+      catStats[item.cat].total += 1;
+      if (answered[i] && answered[i].correct) catStats[item.cat].correct += 1;
+    });
+    el.catRows.innerHTML = "";
+    Object.keys(CATS).forEach(function(k){
+      var s = catStats[k];
+      if (s.total === 0) return;
+      var pctCat = (s.correct / s.total) * 100;
+      var row = document.createElement("div");
+      row.className = "cat-row";
+      row.innerHTML =
+        '<div class="cat-name">' + CATS[k] + '</div>' +
+        '<div class="cat-track"><div class="cat-fill" style="width:' + pctCat + '%"></div></div>' +
+        '<div class="cat-frac">' + s.correct + '/' + s.total + '</div>';
+      el.catRows.appendChild(row);
+    });
+
+    // review list
+    el.reviewList.innerHTML = "";
+    var wrongOnes = [];
+    questions.forEach(function(item, i){
+      if (answered[i] && !answered[i].correct) wrongOnes.push({ item: item, ans: answered[i] });
+    });
+    if (wrongOnes.length === 0){
+      el.reviewList.innerHTML = '<div class="review-item">Tebrikler, tüm sorulara doğru cevap verdin — gözden geçirilecek bir soru yok.</div>';
+    } else {
+      wrongOnes.forEach(function(w){
+        var div = document.createElement("div");
+        div.className = "review-item";
+        div.innerHTML =
+          '<div class="review-q">' + w.item.q + '</div>' +
+          '<div class="review-ans"><span class="yours">Senin cevabın: ' + w.item.opts[w.ans.chosen] + '</span><br>' +
+          '<span class="right">Doğru cevap: ' + w.item.opts[w.item.correctIndex] + '</span></div>' +
+          '<div class="review-exp">' + w.item.exp + '</div>';
+        el.reviewList.appendChild(div);
+      });
+    }
+
+    try{
+      var prevBest = null;
+      var raw = localStorage.getItem(BEST_KEY);
+      if (raw) prevBest = JSON.parse(raw);
+      if (!prevBest || score > prevBest.score){
+        localStorage.setItem(BEST_KEY, JSON.stringify({ score: score, correct: correctCount, total: total }));
+      }
+    } catch(e){}
+  }
+
+  el.startBtn.addEventListener("click", function(){
+    el.cover.style.display = "none";
+    el.quizSection.style.display = "block";
+    el.appHeader.classList.add("show");
+    buildChain();
+    renderQuestion();
+  });
+
+  el.nextBtn.addEventListener("click", nextQuestion);
+
+  el.reviewToggle.addEventListener("click", function(){
+    var showing = el.reviewList.classList.toggle("show");
+    el.reviewChevron.textContent = showing ? "▴" : "▾";
+  });
+
+  el.restartBtn.addEventListener("click", function(){ location.reload(); });
+
+  document.addEventListener("keydown", function(e){
+    if (el.quizSection.style.display === "none") return;
+    if (el.nextBtn.style.display !== "none" && (e.key === "Enter" || e.key === " ")){
+      e.preventDefault(); nextQuestion(); return;
+    }
+    var map = { "1":0, "2":1, "3":2, "4":3 };
+    if (map.hasOwnProperty(e.key) && !answered[idx]){
+      selectOption(map[e.key]);
+    }
+  });
+})();
+</script>
